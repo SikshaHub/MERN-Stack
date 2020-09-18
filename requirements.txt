@@ -1,0 +1,21 @@
+# npm Requirements for the Project
+# Regular Dependencies
+# npm i express express-validator bcryptjs config gravatar jsonwebtoken mongoose request
+express == {Main Web Framework for the BackEnd}
+express-validator == {For Data Validation. When we make POST request to our API, if there are fields that are required but 
+                        # not present, it will raise an error, so we use it for validation}
+bcryptjs == {Used for Password Encryption to store encrypted password into database}
+config == {For Global Variables}
+gravatar == {For Profile Avatars. If a User signs up, they can use an email that is associated with a Gravatar account, that 
+            # will automatically show their Profile image}
+jsonwebtoken = {JWT is used to pass along a token for validation}
+mongoose = {Layer that sits on top of the database and interact wth it}
+request = {Small module that will allow to make HTTP request to another API and the reason that we are installing it is for 
+            # GITHUB repository. We want our profiles to have GITHUB repositories listed on them, we can make resquest from
+            # backend so that we can hire our API keys and we can return the repositories}
+
+# Other Dependencies
+# npm i -D nodemon concurrently
+nodemon == {Nodemon will constantly watch our server so that we dont have to refresh the server everytime we make some changes}
+concurrently == {Allow us the run our backend express server and our Frontend React server at the same time with one single
+                # command}
