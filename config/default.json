@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://vineet:falcun22@sikshahub-devconnector.cujza.mongodb.net/mern?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
+}
