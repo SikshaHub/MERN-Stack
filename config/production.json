@@ -1,0 +1,7 @@
+{
+    "mongoURI": "mongodb+srv://vineet:falcun22@sikshahub-devconnector.cujza.mongodb.net/mern?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "1c5c116172c039c0d31f",
+    "githubSecret": "c147621d0390582b4d462f818ff6078c64cd5304"
+  }
+  

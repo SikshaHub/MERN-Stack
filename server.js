@@ -1,6 +1,9 @@
 const express = require('express');
 const connectDB = require('./config/db');
 
+/**Required in Production Environment */
+const path = require('path');
+
 /** Initialize App variable with express */
 const app = express();
 
@@ -11,17 +14,28 @@ connectDB();
 app.use(express.json({ extended: false }));
 // app.use(express.urlencoded({ extended: true }));
 
-/** Create single endpoint to test out
+/** This is not required in production environment
+ * Create single endpoint to test out
  * Take a get request to '/'
  * Callback function with parameter (req, res)
  * Send data to the Browser */
-app.get('/', (req, res) => res.send(`API running`));
+// app.get('/', (req, res) => res.send(`API running`));
 
 /** Define Routes   */
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
+
+/** Serve static assets in Production environment */
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 /** Store the port value in a Variable
  * Process will look for an environment variable called PORT when we deploy it on Heroku
